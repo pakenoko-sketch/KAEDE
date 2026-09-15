@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>KaeDe OS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="lock-screen">
+    <div class="lock-time" id="lock-time">00:00</div>
+    <div class="lock-date" id="lock-date"></div>
+    <div class="swipe-hint">
+      <div class="chevron-wrap">
+        <svg width="22" height="12" viewBox="0 0 22 12"><path d="M2 10 L11 2 L20 10" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="22" height="12" viewBox="0 0 22 12"><path d="M2 10 L11 2 L20 10" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>上にスワイプして開始</div>
+    </div>
+  </div>
+
+  <div id="home-screen">
+    <div class="phone">
+      <div class="analog-clock">
+        <svg id="analog" width="140" height="140" viewBox="0 0 140 140"></svg>
+      </div>
+      <div class="digital-clock" id="digital-clock">00:00:00</div>
+      <div class="weather" id="weather" onclick="loadWeather()">
+        <span class="muted">天気を取得中…</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>📅 今日の予定</span>
+          <button onclick="toggleForm()">＋</button>
+        </div>
+        <div id="schedule-list"></div>
+        <div class="schedule-form" id="schedule-form">
+          <input type="text" name="time" placeholder="9:00">
+          <input type="text" name="title" placeholder="内容">
+          <button class="save" onclick="addSchedule()">保存</button>
+        </div>
+      </div>
+
+      <div class="settings-panel" id="settings-panel">
+        <button onclick="loadWeather()">🔄 天気を再取得</button>
+        <button onclick="resetSchedule()">🗑 予定をリセット</button>
+      </div>
+
+      <div class="app-grid">
+        <button class="app-icon" onclick="openApp('line')">
+          <div class="tile line">💬</div><span class="label">LINE</span>
+        </button>
+        <button class="app-icon" onclick="openApp('clock')">
+          <div class="tile clock">🕐</div><span class="label">時計</span>
+        </button>
+        <button class="app-icon" onclick="openApp('map')">
+          <div class="tile map">📍</div><span class="label">地図</span>
+        </button>
+        <button class="app-icon" onclick="openApp('music')">
+          <div class="tile music">🎵</div><span class="label">音楽</span>
+        </button>
+        <button class="app-icon" onclick="openApp('notes')">
+          <div class="tile notes">📝</div><span class="label">メモ</span>
+        </button>
+        <button class="app-icon" onclick="openApp('settings')">
+          <div class="tile settings">⚙️</div><span class="label">設定</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
